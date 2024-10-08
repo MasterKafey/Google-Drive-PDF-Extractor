@@ -41,7 +41,7 @@ class GoogleDrive
     public function downloadFolderAsZip(string $folderId, string $zipFilePath): string
     {
         $zip = new ZipArchive();
-        if (dump($zip->open($zipFilePath, ZipArchive::CREATE)) !== true) {
+        if ($zip->open($zipFilePath, ZipArchive::CREATE) !== true) {
             throw new \Exception('Could not create ZIP file.');
         }
         $this->addFolderToZip($folderId, $zip);

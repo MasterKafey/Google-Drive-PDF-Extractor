@@ -33,9 +33,9 @@ class ExtractCommand extends Command
 
         try {
             $this->googleDrive->downloadFolderAsZip($folderId, $zipPath);
-            echo "Le fichier ZIP a été créé : " . $zipPath;
+            $output->writeln("Le fichier ZIP a été créé : " . $zipPath);
         } catch (\Exception $e) {
-            echo "Erreur : " . $e->getMessage();
+            $output->writeln($e->getMessage());
         }
 
         return Command::SUCCESS;
